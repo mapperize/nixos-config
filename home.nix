@@ -2,8 +2,21 @@
 
 {
 	imports = [ 
-		./helium.nix
-		plasma-manager.homeManagerModules.plasma-manager 
+		./home-flakes/git.nix
+		./home-flakes/bash.nix
+		./home-flakes/plasma-config.nix
+		./home-flakes/vim.nix
+        ./home-flakes/helium.nix
+        ./home-flakes/doom-emacs/doom.nix
+
+        ./home-flakes/electronics/kicad.nix
+        #./home-flakes/electronics/ltspice.nix
+
+        ./home-flakes/programming/c-and-c++.nix
+        ./home-flakes/programming/haskell.nix
+        ./home-flakes/programming/misc.nix
+
+		plasma-manager.homeModules.plasma-manager 
 	];
 
 	home.username = "joowon";
@@ -13,157 +26,20 @@
 	neofetch
 	xz
 	p7zip
+    gzip
 	
 	glow
 
 	pciutils
 	usbutils
 
-	ghc
-	gcc
-
 	emacs
 
 	];
-	
-	programs.git = {
-		enable = true;
-		userName  = "Joowon";
-		userEmail = "120153524+mapperize@users.noreply.github.com";
-	};
 
-	programs.bash = {
-		enable = true;
-		enableCompletion = true;
-		bashrcExtra = '' 
-		
-		'';
-		
-		shellAliases = {};
-	};
-
-  programs.plasma = {
-    enable = true;
-
-    workspace = {
-      clickItemTo = "open";
-      lookAndFeel = "org.kde.breezedark.desktop";
-      cursor = {
-        theme = "Bibata-Modern-Ice";
-        size = 32;
-      };
-      iconTheme = "Papirus-Dark";
-      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1080x1920.png";
-    };
-
-    # The only remaining custom keybind
-    hotkeys.commands."launch-konsole" = {
-      name = "Launch Konsole";
-      key = "Meta+Alt+K";
-      command = "konsole";
-    };
-
-    panels = [
-      {
-        location = "bottom";
-        hiding = "none";
-        widgets = [
-          {
-            name = "org.kde.plasma.kickoff";
-            config = {
-              General = {
-                icon = "nix-snowflake-white";
-                alphaSort = true;
-              };
-            };
-          }
-
-          {
-            iconTasks = {
-              launchers = [
-                "applications:org.kde.dolphin.desktop"
-                "applications:org.kde.konsole.desktop"
-              ];
-            };
-          }
-          "org.kde.plasma.panelspacer"
-          {
-            systemTray.items = {
-              shown = [
-                "org.kde.plasma.battery"
-                "org.kde.plasma.volume"
-              ];
-              hidden = [
-                "org.kde.plasma.networkmanagement"
-                "org.kde.plasma.bluetooth"
-              ];
-            };
-          }
-          {
-            digitalClock = {
-              time.format = "12h";
-            };
-          }
-        ];
-      }
+    home.sessionPath = [
+      "$HOME/.config/emacs/bin"
     ];
-
-    fonts.general = {
-      family = "JetBrains Mono";
-      pointSize = 12;
-    };
-
-    window-rules = [
-      {
-        description = "Dolphin";
-        match = {
-          window-class = { value = "dolphin"; type = "substring"; };
-          window-types = [ "normal" ];
-        };
-        apply = {
-          noborder = { value = true; apply = "force"; };
-          maximizehoriz = true;
-          maximizevert = true;
-        };
-      }
-    ];
-
-    powerdevil = {
-      AC = {
-        powerButtonAction = "lockScreen";
-        autoSuspend = { action = "shutDown"; idleTimeout = 1000; };
-        turnOffDisplay = { idleTimeout = 1000; idleTimeoutWhenLocked = "immediately"; };
-      };
-      battery = {
-        powerButtonAction = "sleep";
-        whenSleepingEnter = "standbyThenHibernate";
-      };
-      lowBattery = {
-        whenLaptopLidClosed = "hibernate";
-      };
-    };
-
-    kwin = {
-      edgeBarrier = 0;
-      cornerBarrier = false;
-      scripts.polonium.enable = false;
-    };
-
-    kscreenlocker = {
-      lockOnResume = true;
-      timeout = 10;
-    };
-
-    configFile = {
-      baloofilerc."Basic Settings"."Indexing-Enabled" = false;
-      kwinrc."org.kde.kdecoration2".ButtonsOnLeft = "SF";
-      kwinrc.Desktops.Number = { value = 8; immutable = true; };
-      kscreenlockerrc = {
-        Greeter.WallpaperPlugin = "org.kde.potd";
-        "Greeter/Wallpaper/org.kde.potd/General".Provider = "bing";
-      };
-    };
-  };
 
 	home.stateVersion = "25.11";		
 }

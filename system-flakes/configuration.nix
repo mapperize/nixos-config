@@ -99,9 +99,17 @@
     wget
     firefox
     btop
+    coreutils
+    ripgrep
   ];
 
   environment.variables.EDITOR = "vim";
+
+	  # app images support
+	programs.appimage = {
+	  enable = true;
+	  binfmt = true;
+	};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
