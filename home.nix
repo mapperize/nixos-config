@@ -1,4 +1,4 @@
-{ plasma-manager, config, pkgs, ... }:
+{ plasma-manager, configRoot, config, pkgs, ... }:
 
 {
 	imports = [ 
@@ -7,14 +7,21 @@
 		./home-flakes/plasma-config.nix
 		./home-flakes/vim.nix
         ./home-flakes/helium.nix
-        ./home-flakes/doom-emacs/doom.nix
+        ./home-flakes/obs.nix
+        ./home-flakes/mpv.nix
+
+        ./home-flakes/konsole.nix
+
+        ./home-flakes/doom-emacs.nix
 
         ./home-flakes/electronics/kicad.nix
-        #./home-flakes/electronics/ltspice.nix
+        ./home-flakes/electronics/ltspice.nix
 
         ./home-flakes/programming/c-and-c++.nix
         ./home-flakes/programming/haskell.nix
         ./home-flakes/programming/misc.nix
+
+        ./home-flakes/laptop/powertop.nix
 
 		plasma-manager.homeModules.plasma-manager 
 	];
@@ -26,7 +33,6 @@
 	neofetch
 	xz
 	p7zip
-    gzip
 	
 	glow
 

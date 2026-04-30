@@ -11,15 +11,24 @@
         theme = "Bibata-Modern-Ice";
         size = 32;
       };
-      iconTheme = "Breeze";
       wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1080x1920";
+      iconTheme = "breeze";
     };
 
-    hotkeys.commands."launch-konsole" = {
-      name = "Launch Konsole";
-      key = "Meta+Alt+T";
-      command = "konsole";
+    hotkeys.commands = {
+        "launch-konsole" = {
+          name = "Launch Konsole";
+          key = "Meta+Alt+T";
+          command = "konsole";
+        };
+
+        "spectactle" = {
+          name = "Launch Spectactle";
+          key = "Insert";
+          command = "spectacle";
+        };
     };
+
 
     panels = [
       {
@@ -72,21 +81,6 @@
       pointSize = 12;
     };
 
-    window-rules = [
-      {
-        description = "Dolphin";
-        match = {
-          window-class = { value = "dolphin"; type = "substring"; };
-          window-types = [ "normal" ];
-        };
-        apply = {
-          noborder = { value = true; apply = "force"; };
-          maximizehoriz = true;
-          maximizevert = true;
-        };
-      }
-    ];
-
     powerdevil = {
       AC = {
         powerButtonAction = "lockScreen";
@@ -120,7 +114,15 @@
         Greeter.WallpaperPlugin = "org.kde.potd";
         "Greeter/Wallpaper/org.kde.potd/General".Provider = "bing";
       };
+      "ksmserverrc"."General" = {
+        loginMode = "emptySession";
+      };
     };
   };
+
+  home.packages = with pkgs; [
+    kdePackages.breeze-icons
+    kdePackages.breeze
+  ];
 
 }

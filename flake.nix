@@ -33,6 +33,7 @@
 
                 home-manager.extraSpecialArgs = {
                   inherit plasma-manager;
+                  configRoot = self;
                 };
 
                 home-manager.users.joowon = import ./home.nix;

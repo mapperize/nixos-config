@@ -1,11 +1,11 @@
-{ doom-emacs, config, pkgs, lib, ...}:
+{ doom-emacs, configRoot, config, pkgs, lib, ...}:
 
 {
 
 
-home.file.".config/doom/init.el".source = ./init.el;
-home.file.".config/doom/config.el".source = ./config.el;
-home.file.".config/doom/packages.el".source = ./packages.el;
+home.file.".config/doom/init.el".source = "${configRoot}/configs/doom-emacs/init.el";
+home.file.".config/doom/config.el".source = "${configRoot}/configs/doom-emacs/config.el";
+home.file.".config/doom/packages.el".source = "${configRoot}/configs/doom-emacs/packages.el";
 
 home.activation.postDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
     cd "$HOME"

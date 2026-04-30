@@ -81,3 +81,5 @@
    :init
   (map! "<M-up>"    #'drag-stuff-up
         "<M-down>"  #'drag-stuff-down))
+
+(setq doom-font (font-spec :family "Hack" :size 16 :weight 'normal))
