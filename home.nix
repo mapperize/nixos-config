@@ -9,6 +9,8 @@
         ./home-flakes/helium.nix
         ./home-flakes/obs.nix
         ./home-flakes/mpv.nix
+        ./home-flakes/yt-dlp.nix
+        ./home-flakes/krita.nix
 
         ./home-flakes/konsole.nix
 
@@ -21,6 +23,8 @@
         ./home-flakes/programming/haskell.nix
         ./home-flakes/programming/misc.nix
 
+        ./home-flakes/retools/binary-ninja.nix
+
         ./home-flakes/laptop/powertop.nix
 
 		plasma-manager.homeModules.plasma-manager 
@@ -30,7 +34,7 @@
 	home.homeDirectory = "/home/joowon";
 
 	home.packages = with pkgs; [
-	neofetch
+    fastfetch
 	xz
 	p7zip
 	

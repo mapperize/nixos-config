@@ -83,3 +83,6 @@
         "<M-down>"  #'drag-stuff-down))
 
 (setq doom-font (font-spec :family "Hack" :size 16 :weight 'normal))
+
+(setenv "PATH" (concat "/run/current-system/sw/bin:" (getenv "PATH")))
+(setq exec-path (cons "/run/current-system/sw/bin" exec-path))

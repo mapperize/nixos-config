@@ -2,7 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    ghc
     cabal-install
+    (haskellPackages.ghcWithPackages (ps: with ps; [
+      aeson
+      filepath
+    ]))
   ];
 }

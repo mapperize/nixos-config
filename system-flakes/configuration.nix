@@ -27,6 +27,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable Bluetooth
+  hardware.bluetooth.enable = false;
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -100,10 +103,10 @@
     firefox
     btop
     coreutils
+    gzip
     ripgrep
     python3
     ffmpeg
-    gzip
   ];
 
   environment.variables.EDITOR = "vim";
