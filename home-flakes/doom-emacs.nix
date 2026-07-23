@@ -18,11 +18,6 @@ home.activation.postDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
       rm -rf "$HOME/.emacs.d"
       ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME/.emacs.d"
       emacs --batch -f nerd-icons-install-fonts
-      cd "$HOME/.emacs.d/bin"
-
-      ./doom install
-      ./doom sync
-      ./doom env
     fi
 
  '';

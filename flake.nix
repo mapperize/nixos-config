@@ -35,6 +35,7 @@
                 };
 
                 home-manager.users.joowon = import ./home.nix;
+				home-manager.backupFileExtension = "bak";
                 }
             ];
         };

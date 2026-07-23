@@ -51,6 +51,14 @@
 
     home.sessionPath = [
       "$HOME/.config/emacs/bin"
+
+	programs.bash.enable = true;
+	programs.zsh.enable = true;
+	programs.fish.enable = true;
+
+    home.sessionPath = [
+		"$HOME/.config/emacs/bin"
+		"$HOME/.emacs.d/bin"
     ];
 
 	home.stateVersion = "26.05";		
