@@ -112,6 +112,10 @@
   ];
 
   environment.variables.EDITOR = "vim";
+  environment.variables.INTEL_FORCE_PROBE = "0xb080"; # forces xe drivers for mesa, b390
+
+  # required for opencl to work
+  hardware.graphics.extraPackages = [ pkgs.intel-compute-runtime ];
 
   # app images support
   programs.appimage = {

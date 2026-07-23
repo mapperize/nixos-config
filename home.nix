@@ -23,7 +23,7 @@
 
 	./home-flakes/retools/binary-ninja.nix
 
-	./home-flakes/laptop/powertop.nix
+	./home-flakes/tools.nix
 
 	plasma-manager.homeModules.plasma-manager 
 
@@ -46,6 +46,7 @@
 
 	kdePackages.kdeconnect-kde
 	librepods
+	vesktop
 
 	];
 

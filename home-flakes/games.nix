@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    steam
-    prismlauncher
-  ];
+	home.packages = with pkgs; [
+		prismlauncher
+	];
+	
+
 }
