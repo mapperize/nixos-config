@@ -14,9 +14,11 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7f221c21-6c9d-4848-8eda-4e5da5998623";
+    { device = "/dev/mapper/luks-e21c428c-e95e-49fe-b53e-bd9307c9ef7f";
       fsType = "ext4";
     };
+
+  boot.initrd.luks.devices."luks-e21c428c-e95e-49fe-b53e-bd9307c9ef7f".device = "/dev/disk/by-uuid/e21c428c-e95e-49fe-b53e-bd9307c9ef7f";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/83DF-130B";
@@ -24,9 +26,7 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/caf11532-8df0-44b2-a1ae-8e9b2d985b6a"; }
-    ];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.npu.enable = true;
