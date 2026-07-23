@@ -5,10 +5,10 @@
     description = "NixOS Flakes Config";
     
     inputs = {
-      nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+      nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
       home-manager = {
-        url = "github:nix-community/home-manager/release-25.11";
+        url = "github:nix-community/home-manager/release-26.05";
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
@@ -23,9 +23,7 @@
     outputs = { self, nixpkgs, home-manager, plasma-manager, ...}@inputs: {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             modules = [
-                ./system-flakes/configuration.nix
-                ./system-flakes/hardware-configuration.nix
-                ./system-flakes/wine.nix
+				./system.nix
                 home-manager.nixosModules.home-manager
                 {
                 home-manager.useGlobalPkgs = true;

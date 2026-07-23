@@ -6,5 +6,6 @@
     ./system-flakes/hardware-configuration.nix
     ./system-flakes/laptop.nix
     ./system-flakes/wine.nix
+	./system-flakes/kvm.nix
   ];
 }

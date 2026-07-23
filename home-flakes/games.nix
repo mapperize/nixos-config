@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    krita
+    steam
+    prismlauncher
   ];
 }
