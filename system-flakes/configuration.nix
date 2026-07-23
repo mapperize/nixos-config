@@ -108,6 +108,7 @@
     python3
     ffmpeg
 	librepods
+	mesa-demos
   ];
 
   environment.variables.EDITOR = "vim";
@@ -118,11 +119,8 @@
     binfmt = true;
   };
 
-<<<<<<< HEAD
-=======
   services.flatpak.enable = true;
 
->>>>>>> dd9a0ff (yes)
   # Limit the number of generations to keep
   boot.loader.systemd-boot.configurationLimit = 10;
   # boot.loader.grub.configurationLimit = 10;
