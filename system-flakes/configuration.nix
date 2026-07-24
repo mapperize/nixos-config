@@ -118,7 +118,12 @@
   environment.variables.INTEL_FORCE_PROBE = "0xb080"; # forces xe drivers for mesa, b390
 
   # required for opencl to work
-  hardware.graphics.extraPackages = [ pkgs.intel-compute-runtime ];
+  hardware.graphics.extraPackages = with pkgs; [ 
+	intel-media-driver
+	intel-vaapi-driver
+	intel-compute-runtime 
+	libva
+  ];
   # required for the clock app to work :(
   programs.kclock.enable = true;
 

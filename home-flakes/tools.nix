@@ -5,6 +5,7 @@
 	vulkan-tools
 	dmidecode
 	clinfo
+	libva-utils
 	geekbench
 	renderdoc
   ];
