@@ -15,3 +15,7 @@ Also KVM is the easiest setup on Nix, literally just [17 lines](https://github.c
 About some battery stuff, I replaced power-profile-daemon with TLP. I think it's on par at the minimum (haven't fully tested), but TLP for sure gives more granular control. I would make on suggestion which is to not set CPU_ENERGY_PERF_POLICY_ON_BAT to power, it destroys CPU perf by like 3 times when I tested it with Geekbench 6. Plus probably most of the battery savings come from using the low-power efficient cores.
 
 I used Windows to run Cinebench and 3DMark Timespy, but then I got it the fuck out, idle was permanently 50C (now it's like 35C). Don't know what the hell is going on there. 70Wh battery is pretty disappointing for a 16 inch in todays standards, but it's whatever. This thing is definitely not worth the retail price, but for todays RAM market (yikes 32GB is $800 for the Framework 13 Pro) I think I got a pretty good deal. I don't like that the memory is soldered too, that sucks. 
+
+[How to enable Quicksync](https://blog.ktz.me/how-to-enable-intel-quicksync-on-nixos-with-a-supermicro-x13sae-f-and-an-intel-i5-13600k-2/)
+
+[Best Nix Flake Guide](https://nixos-and-flakes.thiscute.world/)
