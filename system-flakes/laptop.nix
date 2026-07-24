@@ -10,8 +10,14 @@
 			CPU_SCALING_GOVERNOR_ON_AC = "performance";
 			CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-			CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+			# this basically determines clock speed
+			# balance_performance is basically the same as balance_power
+			# power: https://browser.geekbench.com/v6/cpu/18807253
+			# balance_power: https://browser.geekbench.com/v6/cpu/18807452
+			# balance_performance: https://browser.geekbench.com/v6/cpu/18807410
+			# performance: https://browser.geekbench.com/v6/cpu/18807306
 			CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+			CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
 
 			CPU_MIN_PERF_ON_AC = 0;
 			CPU_MAX_PERF_ON_AC = 100;

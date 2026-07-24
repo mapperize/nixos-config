@@ -1,0 +1,17 @@
+# nixos-config
+I primarily use an [HP Omnibook X](https://www.bestbuy.com/product/hp-omnibook-x-16-2k-oled-touchscreen-laptop-intel-core-ultra-x7-2026-32gb-memory-1tb-ssd-copilot-pc-meteor-silver/JJGW34X2K5) that I got open box for $1220 + $73.20 tax.
+
+I like the X7 358h on this, so fast and power efficient :). The screen is a OLED, but it isn't a very good one. It has a screen-door effect that is much more noticable with black text on white background. On the KDE monitor settings I enabled a little bit of sharpness (2), kept Anti-Aliasing on, turned off sub-pixel rendering, and set Hinting to medium.
+
+I had a lot of trouble getting the B390 to cooperate. I tried running [Unleashed Recompiled](https://github.com/hedge-dev/UnleashedRecomp) and found myself with 10 fps. I hit F1 and found it was using software rendering, honestly impressed that Windmill Isle Act 1 even could hit that. It turns out mesa requires you to set INTEL_FORCE_PROBE to the vendor ID of the B390 (0xb080
+), otherwise it doesn't work. This is me speaking as of 7/23/26 so I'm sure that'll be fixed sometime soon. I also encountered the issue of Davinci Resolve not using hardware acceleration. Resolve uses OpenCL, so eventually I discovered the [Intel Compute Runtime](https://github.com/intel/compute-runtime) which THANKFULLY had a nixpkg. You have to install it with hardware.graphics.extraPackages, NOT with environment.systemPackages; otherwise the ICD loader implementation doesn't work. Pains of using new hardware on Linux!
+
+I did forget to encrypt my drive using the graphical installer (the encrypt drive option checkbox shows up with automatic partitioning). Nix saved my ass there, I just git pushed everything, reinstalled, git cloned it, and nixos-build switch! Made me happy to see almost everything be automatic! Oh shit I forgot to copy over the auto-generated hardware-configuration.nix that is required to boot correctly, thank god I made a backup of the default config. 
+
+I did make a "not so Nix" option of using the Helium browser with an appimage registered as a desktop entry, sorry it was the easiest option. The Haskell part of this repo was supposed to be an updater for that, but I haven't finished it yet (neither have I even finished the Learn You a Haskell guide :p).
+
+Also KVM is the easiest setup on Nix, literally just [17 lines](https://github.com/mapperize/nixos-config/blob/master/system-flakes/kvm.nix) of a flake and it just works, probably even less because as far as I know the "qemu =" part is unnecessary.
+
+About some battery stuff, I replaced power-profile-daemon with TLP. I think it's on par at the minimum (haven't fully tested), but TLP for sure gives more granular control. I would make on suggestion which is to not set CPU_ENERGY_PERF_POLICY_ON_BAT to power, it destroys CPU perf by like 3 times when I tested it with Geekbench 6. Plus probably most of the battery savings come from using the low-power efficient cores.
+
+I used Windows to run Cinebench and 3DMark Timespy, but then I got it the fuck out, idle was permanently 50C (now it's like 35C). Don't know what the hell is going on there. 70Wh battery is pretty disappointing for a 16 inch in todays standards, but it's whatever. This thing is definitely not worth the retail price, but for todays RAM market (yikes 32GB is $800 for the Framework 13 Pro) I think I got a pretty good deal. I don't like that the memory is soldered too, that sucks. 
