@@ -7,5 +7,6 @@
     ./system-flakes/laptop.nix
     ./system-flakes/wine.nix
 	./system-flakes/kvm.nix
+	./system-flakes/nix-ld.nix
   ];
 }

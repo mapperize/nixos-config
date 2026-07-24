@@ -7,6 +7,12 @@
     llvm
     ninja
     gnumake
+	cmake
+	pkg-config
+
+	# other libs
+	linuxHeaders
+	stdenv.cc.cc.lib # for libstdc++.so.6
 
     # graphics libs
     gtk3

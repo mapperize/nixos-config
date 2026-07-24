@@ -109,6 +109,9 @@
     ffmpeg
 	librepods
 	mesa-demos
+	vulkan-loader
+	zip
+	unzip
   ];
 
   environment.variables.EDITOR = "vim";

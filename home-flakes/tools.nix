@@ -6,6 +6,7 @@
 	dmidecode
 	clinfo
 	geekbench
+	renderdoc
   ];
 
 }
