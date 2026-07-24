@@ -119,6 +119,8 @@
 
   # required for opencl to work
   hardware.graphics.extraPackages = [ pkgs.intel-compute-runtime ];
+  # required for the clock app to work :(
+  programs.kclock.enable = true;
 
   # app images support
   programs.appimage = {

@@ -19,10 +19,11 @@ in {
   home.packages = [ helium-pkg ];
   xdg.desktopEntries.helium = {
     name = "Helium";
-    exec = "helium";
+    exec = "helium %u";
     icon = iconPath;
     terminal = false;
     categories = ["Application"];
     type = "Application";
+	mimeType = ["x-scheme-handler/http" "x-scheme-handler/https"];
   };
 }
