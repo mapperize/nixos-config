@@ -86,3 +86,6 @@
 
 (setenv "PATH" (concat "/run/current-system/sw/bin:" (getenv "PATH")))
 (setq exec-path (cons "/run/current-system/sw/bin" exec-path))
+
+(use-package exec-path-from-shell
+  :config (exec-path-from-shell-initialize))

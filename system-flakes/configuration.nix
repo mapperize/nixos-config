@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
+  # use latest stable
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -105,9 +105,7 @@
     coreutils
     gzip
     ripgrep
-    python3
     ffmpeg
-	librepods
 	mesa-demos
 	vulkan-loader
 	zip
@@ -124,8 +122,11 @@
 	intel-compute-runtime 
 	libva
   ];
-  # required for the clock app to work :(
+  # system programs 
   programs.kclock.enable = true;
+  programs.librepods.enable = true;
+  programs.kdeconnect.enable = true;
+
 
   # app images support
   programs.appimage = {

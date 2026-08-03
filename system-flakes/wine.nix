@@ -1,8 +1,9 @@
 { config, pkgs, ...}:
 
 {
-  environment.systemPackages  = with pkgs; [
-    wineWow64Packages.waylandFull
-    winetricks
-  ];
+	environment.systemPackages = with pkgs; [
+	  wineWowPackages.
+	  winetricks
+	  wine-gecko wine-mono
+	];
 }

@@ -6,8 +6,11 @@
 	dmidecode
 	clinfo
 	libva-utils
-	geekbench
+	#geekbench
 	renderdoc
+	filezilla
+	termius
+	signal-desktop
   ];
 
 }

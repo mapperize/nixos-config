@@ -19,6 +19,7 @@
 
 	./home-flakes/programming/c-and-c++.nix
 	./home-flakes/programming/haskell.nix
+	./home-flakes/programming/python.nix
 	./home-flakes/programming/misc.nix
 
 	./home-flakes/retools/binary-ninja.nix
@@ -44,12 +45,12 @@
 
 	emacs
 
-	kdePackages.kdeconnect-kde
 	librepods
 	vesktop
 
 	];
 
+	fonts.fontconfig.hinting = "medium";
 
 	programs.bash.enable = true;
 	programs.zsh.enable = true;

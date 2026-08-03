@@ -6,6 +6,7 @@
     (haskellPackages.ghcWithPackages (ps: with ps; [
       aeson
       filepath
+      network 
     ]))
   ];
 }

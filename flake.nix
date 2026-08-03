@@ -6,6 +6,7 @@
     
     inputs = {
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+      nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
       home-manager = {
         url = "github:nix-community/home-manager/release-26.05";
@@ -20,8 +21,17 @@
 
     };	
 
-    outputs = { self, nixpkgs, home-manager, plasma-manager, ...}@inputs: {
+    outputs = { self, nixpkgs, home-manager, plasma-manager, nixpkgs-unstable, ...}@inputs: {
         nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+			specialArgs = let
+			  system = "x86_64-linux";
+			in {
+			  pkgs-unstable = import nixpkgs-unstable {
+				inherit system;
+				config.allowUnfree = true;
+			  };
+			};
+
             modules = [
 				./system.nix
                 home-manager.nixosModules.home-manager

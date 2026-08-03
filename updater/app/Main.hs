@@ -5,6 +5,7 @@ import GHC.Generics
 import Data.Aeson
 import Data.Text
 import System.FilePath
+import Network.HTTP.Simple
 import qualified Data.Text as T
 import qualified Data.ByteString.Lazy as B
 

@@ -3,10 +3,12 @@
 	home.packages = with pkgs; [
 		mpv
 		obs-studio
-		yt-dlp
+
+		# required for yt-dlp + ejs
+		deno
+
 		krita
 		davinci-resolve
 	];
-	
 }
 

@@ -69,7 +69,11 @@ executable nixos-package-updater
     -- Other library packages from which modules are imported.
     build-depends:    base ^>=4.20.2.0,
                       text,
-                      aeson ^>= 2.2
+                      aeson ^>= 2.2,
+					  http-conduit,
+					  filepath,
+					  bytestring 
+  					  
 
     -- Directories containing source files.
     hs-source-dirs:   app

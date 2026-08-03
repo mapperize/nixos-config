@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 {
   home.packages = with pkgs; [
+	jetbrains.clion
     (lib.hiPrio gcc)
     (lib.lowPrio clang)
     lld
@@ -13,6 +14,7 @@
 	# other libs
 	linuxHeaders
 	stdenv.cc.cc.lib # for libstdc++.so.6
+	zlib
 
     # graphics libs
     gtk3
