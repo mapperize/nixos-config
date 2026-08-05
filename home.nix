@@ -61,6 +61,9 @@
 		"$HOME/.emacs.d/bin"
     ];
 
+	home.sessionVariables = {
+	};
+
 	home.stateVersion = "26.05";		
 
 }

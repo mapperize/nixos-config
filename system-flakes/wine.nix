@@ -2,8 +2,7 @@
 
 {
 	environment.systemPackages = with pkgs; [
-	  wineWowPackages.
+	  wineWow64Packages.stagingFull
 	  winetricks
-	  wine-gecko wine-mono
 	];
 }

@@ -11,6 +11,7 @@
 	filezilla
 	termius
 	signal-desktop
+	llama-cpp
   ];
 
 }
