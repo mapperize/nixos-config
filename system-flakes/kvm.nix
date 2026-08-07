@@ -14,4 +14,7 @@
 	boot.kernelModules = ["kvm-intel"];
 
 	users.groups.libvirtd.members = ["joowon"];
+
+	users.users.joowon.extraGroups = [ "wheel" "docker" ];
+	virtualisation.docker.enable = true;
 }

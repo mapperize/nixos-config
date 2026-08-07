@@ -24,5 +24,6 @@
     sdl3.dev
     sdl2-compat
     sdl2-compat.dev
+
   ];
 }

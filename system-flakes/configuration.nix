@@ -14,8 +14,20 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # use latest stable
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # 7.1.6 fucking broke my graphics driver 
+  boot.kernelPackages = pkgs.linuxPackagesFor (
+    pkgs.linuxKernel.kernels.linux_7_1.override {
+      argsOverride = rec {
+        version = "7.1.5";
+        modDirVersion = version;
+
+        src = pkgs.fetchurl {
+          url = "mirror://kernel/linux/kernel/v7.x/linux-${version}.tar.xz";
+          sha256 = "IqAZazy83zTcJ7d1YfTQQFhf00R+3JqzUxoax54wQec=";
+        };
+      };
+    }
+  );
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -110,6 +122,7 @@
 	vulkan-loader
 	zip
 	unzip
+	openvino
   ];
 
   environment.variables.EDITOR = "vim";

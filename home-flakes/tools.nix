@@ -11,7 +11,8 @@
 	filezilla
 	termius
 	signal-desktop
-	llama-cpp
+	lmstudio
+	llama-cpp-vulkan	
   ];
 
 }
