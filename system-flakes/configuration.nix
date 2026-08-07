@@ -129,12 +129,15 @@
   environment.variables.INTEL_FORCE_PROBE = "0xb080"; # forces xe drivers for mesa, b390
 
   # required for opencl to work
-  hardware.graphics.extraPackages = with pkgs; [ 
-	intel-media-driver
-	intel-vaapi-driver
-	intel-compute-runtime 
-	libva
-  ];
+  hardware.graphics = {
+	enable = true;
+  	extraPackages = with pkgs; [ 
+		intel-media-driver
+		intel-vaapi-driver
+		intel-compute-runtime 
+		libva
+  	];
+  };
   # system programs 
   programs.kclock.enable = true;
   programs.librepods.enable = true;
